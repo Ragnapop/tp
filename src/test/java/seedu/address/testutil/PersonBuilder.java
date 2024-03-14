@@ -3,13 +3,12 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.group.Group;
+import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
-import seedu.address.model.person.NusId;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Tag;
+import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -17,49 +16,37 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class PersonBuilder {
 
-    public static final String DEFAULT_NUSID = "E1234567";
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
-    public static final String DEFAULT_TAG = "Student";
+    public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    private NusId nusId;
     private Name name;
     private Phone phone;
     private Email email;
-    private Tag tag;
-    private Set<Group> groups;
+    private Address address;
+    private Set<Tag> tags;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        nusId = new NusId(DEFAULT_NUSID);
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
-        tag = new Tag(DEFAULT_TAG);
-        groups = new HashSet<>();
+        address = new Address(DEFAULT_ADDRESS);
+        tags = new HashSet<>();
     }
 
     /**
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
     public PersonBuilder(Person personToCopy) {
-        nusId = personToCopy.getNusId();
         name = personToCopy.getName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
-        tag = personToCopy.getTag();
-        groups = new HashSet<>(personToCopy.getGroups());
-    }
-
-    /**
-     * Sets the {@code NusId} of the {@code Person} that we are building.
-     */
-    public PersonBuilder withNusId(String nusId) {
-        this.nusId = new NusId(nusId);
-        return this;
+        address = personToCopy.getAddress();
+        tags = new HashSet<>(personToCopy.getTags());
     }
 
     /**
@@ -71,18 +58,18 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code groups} into a {@code Set<Group>} and set it to the {@code Person} that we are building.
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withGroups(String ... groups) {
-        this.groups = SampleDataUtil.getGroupSet(groups);
+    public PersonBuilder withTags(String ... tags) {
+        this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
 
     /**
-     * Sets the {@code Tag} of the {@code Person} that we are building.
+     * Sets the {@code Address} of the {@code Person} that we are building.
      */
-    public PersonBuilder withTag(String tag) {
-        this.tag = new Tag(tag);
+    public PersonBuilder withAddress(String address) {
+        this.address = new Address(address);
         return this;
     }
 
@@ -103,7 +90,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(nusId, name, phone, email, tag, groups);
+        return new Person(name, phone, email, address, tags);
     }
 
 }

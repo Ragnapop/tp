@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.group.Group;
+import seedu.address.model.tag.Tag;
 
 /**
  * Represents a Person in the address book.
@@ -17,26 +17,24 @@ import seedu.address.model.group.Group;
 public class Person {
 
     // Identity fields
-    private final NusId nusId;
     private final Name name;
     private final Phone phone;
     private final Email email;
 
     // Data fields
-    private final Tag tag;
-    private final Set<Group> groups = new HashSet<>();
+    private final Address address;
+    private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(NusId nusId, Name name, Phone phone, Email email, Tag tag, Set<Group> groups) {
-        requireAllNonNull(nusId, name, phone, email, tag, groups);
-        this.nusId = nusId;
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.tag = tag;
-        this.groups.addAll(groups);
+        this.address = address;
+        this.tags.addAll(tags);
     }
 
     public Name getName() {
@@ -51,20 +49,16 @@ public class Person {
         return email;
     }
 
-    public Tag getTag() {
-        return tag;
-    }
-
-    public NusId getNusId() {
-        return nusId;
+    public Address getAddress() {
+        return address;
     }
 
     /**
-     * Returns an immutable group set, which throws {@code UnsupportedOperationException}
+     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Group> getGroups() {
-        return Collections.unmodifiableSet(groups);
+    public Set<Tag> getTags() {
+        return Collections.unmodifiableSet(tags);
     }
 
     /**
@@ -99,25 +93,24 @@ public class Person {
         return name.equals(otherPerson.name)
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
-                && tag.equals(otherPerson.tag)
-                && groups.equals(otherPerson.groups);
+                && address.equals(otherPerson.address)
+                && tags.equals(otherPerson.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, tag, groups);
+        return Objects.hash(name, phone, email, address, tags);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("nusId", nusId)
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
-                .add("tag", tag)
-                .add("groups", groups)
+                .add("address", address)
+                .add("tags", tags)
                 .toString();
     }
 

@@ -274,9 +274,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* Tech-savvy university Computer Science teaching assistants
-* manages an array of students and professors’ contacts
-* appreciates an organized and vibrant approach to query, and manage contacts with CLI
+* has a need to manage a significant number of contacts
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
@@ -353,7 +351,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. AddressBook shows an error message.
 
       Use case resumes at step 1.
-      
 * 2b. The given information is insufficient to form a contact.
 
     * 2b1. AddressBook shows an error message.
@@ -377,7 +374,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. AddressBook shows an error message.
 
       Use case resumes at step 1.
-      
+
 * 2a. The contact does not exist.
 
     * 2a1. AddressBook shows an error message.
@@ -491,7 +488,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 1.
 
-
 **Use case: schedules an event with a contact**
 
 **MSS**
@@ -521,7 +517,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a2. User has to request the classification again using a correct classifier
 
       Use case resumes at step 1.
-
 
 
 ### Non-Functional Requirements
