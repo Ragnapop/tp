@@ -1,0 +1,19 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+start
+:User executes schedule command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([valid schedule command])
+    :Parse schedule command;
+    :Execute schedule command;
+    :Save modified person
+          AddressBook;
+else ([else])
+endif
+stop
+@enduml
