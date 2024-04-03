@@ -3,19 +3,16 @@ skin rose
 skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 start
-
-:User inputs schedule command;
-:Parse schedule command;
+:User inputs add command;
+:Parse add command;
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
 
-
 if () then ([valid command])
-    :Parse schedule command;
-    :Execute schedule command;
-    :Save modified person
-          AddressBook;
+    :Execute add command;
+    :Edit person's details;
+    :Save modified person in AddressBook;
     :Display success message;
 else ([else])
     :Display error message;
