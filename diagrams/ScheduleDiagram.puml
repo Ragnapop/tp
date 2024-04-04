@@ -4,12 +4,12 @@ skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 start
 
+
 :User inputs schedule command;
 :Parse schedule command;
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.
-
 
 if () then ([valid command])
     :Parse schedule command;
@@ -18,7 +18,6 @@ if () then ([valid command])
           AddressBook;
     :Display success message;
 else ([else])
-    :Display error message;
 endif
 stop
 @enduml

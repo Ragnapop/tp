@@ -40,7 +40,7 @@
       "src": "DeveloperGuide.md",
       "title": "Developer Guide",
       "headings": {
-        "ab-3-developer-guide": "AB-3 Developer Guide",
+        "aronapro-developer-guide": "AronaPro Developer Guide",
         "acknowledgements": "Acknowledgements",
         "setting-up-getting-startedf": "Setting up, getting startedf",
         "design": "Design",
@@ -51,9 +51,8 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
-        "add-feature": "Add feature",
-        "schedule-feature": "Schedule feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
+        "schedule-feature": "Schedule feature",
         "schedule-feature-2": "Schedule feature",
         "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
@@ -110,7 +109,7 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
-        "ab-3-user-guide": "AB-3 User Guide",
+        "aronapro-user-guide": "AronaPro User Guide",
         "quick-start": "Quick start",
         "features": "Features",
         "viewing-help-help": "Viewing help : help",
