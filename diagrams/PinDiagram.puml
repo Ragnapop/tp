@@ -1,0 +1,21 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+start
+:User inputs pin command;
+:Parse pin command;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([valid command])
+    :Execute pin command;
+    :Pin person to the top of address book;
+    :Save modified person in AddressBook;
+    :Display success message;
+else ([else])
+    :Display error message;
+endif
+stop
+@enduml
