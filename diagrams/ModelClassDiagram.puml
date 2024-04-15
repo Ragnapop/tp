@@ -17,9 +17,12 @@ Class Person
 Class Tag
 Class "<<enumeration>>\nTagType" as TagType
 Class Email
+Class NusId
 Class Name
 Class Phone
 Class Group
+Class Schedule
+Class Remark
 
 Class I #FFFFFF
 }
@@ -38,18 +41,24 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniquePersonList
 UniquePersonList --> "~* all" Person
+Person *--> NusId
 Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Tag
+Person *--> Schedule
+Person *--> Remark
 Person *--> "*" Group
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
 
+NusId -[hidden]right-> Name
 Name -[hidden]right-> Phone
-Phone -[hidden]right-> Tag
-Tag -[hidden]right-> Email
+Phone -[hidden]right-> Email
+Email -[hidden]right-> Tag
+Tag -[hidden]right-> Schedule
+Schedule -[hidden]right-> Remark
 
 ModelManager --> "~* filtered" Person
 @enduml

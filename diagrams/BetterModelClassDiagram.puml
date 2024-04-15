@@ -16,8 +16,11 @@ UniquePersonList -right-> Person
 
 Person -up-> "*" Group
 
+Person *--> NusId
 Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Tag
+Person *--> Schedule
+Schedule *--> "1" Remark
 @enduml

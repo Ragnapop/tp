@@ -42,7 +42,7 @@
       "headings": {
         "aronapro-developer-guide": "AronaPro Developer Guide",
         "acknowledgements": "Acknowledgements",
-        "setting-up-getting-startedf": "Setting up, getting startedf",
+        "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
         "architecture": "Architecture",
         "ui-component": "UI component",
@@ -54,21 +54,7 @@
         "add-feature": "Add feature",
         "edit-feature": "Edit feature",
         "schedule-feature": "Schedule feature",
-        "pin-feature": "Pin feature",
-        "group-feature": "Group feature",
-        "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
-        "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
-        "appendix-requirements": "Appendix: Requirements",
-        "product-scope": "Product scope",
-        "user-stories": "User stories",
-        "use-cases": "Use cases",
-        "non-functional-requirements": "Non-Functional Requirements",
-        "glossary": "Glossary",
-        "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
-        "launch-and-shutdown": "Launch and shutdown",
-        "example-deleting-a-person": "Example: Deleting a person",
-        "saving-data": "Saving data"
+        "find-feature": "Find feature"
       },
       "headingKeywords": {}
     },
@@ -123,16 +109,15 @@
         "adding-a-person-add": "Adding a person: add",
         "viewing-all-persons-view": "Viewing all persons : view",
         "editing-a-person-s-information-edit": "Editing a person's information : edit",
-        "locating-persons-by-name-find": "Locating persons by name: find",
+        "finding-a-person-find": "Finding a person: find",
         "deleting-a-person-delete": "Deleting a person : delete",
-        "assigning-a-person-to-a-group-group": "Assigning a person to a group : group",
+        "assigning-people-to-a-group-group": "Assigning people to a group : group",
         "schedule-a-meeting-with-a-person-schedule": "Schedule a meeting with a person: schedule",
         "pinning-a-person-pin": "Pinning a person: pin",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
         "saving-the-data": "Saving the data",
         "editing-the-data-file": "Editing the data file",
-        "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
         "faq": "FAQ",
         "known-issues": "Known issues",
         "planned-enhancements": "Planned enhancements",
@@ -161,14 +146,6 @@
       "title": "Tan Hong Jun's Project Portfolio Page",
       "headings": {
         "project-aronapro": "Project: AronaPro"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "team/johndoe.md",
-      "title": "John Doe's Project Portfolio Page",
-      "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
     },

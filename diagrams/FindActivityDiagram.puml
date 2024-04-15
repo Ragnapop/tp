@@ -1,0 +1,16 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+start
+:User executes find command;
+
+if () then ([some field exists])
+    :get a filtered list;
+    :update model with filtered list;
+else ([no field exists])
+    :show an error message;
+endif
+stop
+
+@enduml
