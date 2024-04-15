@@ -163,7 +163,7 @@ Format: `add id/NUSID n/NAME p/PHONE_NUMBER e/EMAIL t/TAG [g/GROUP]…​`
 
 > Note:
 > * The `NUSID` refers to the NUSID shown in the displayed person list.
-> * The `NUSID` **must be a 7-digit number following an 'E'**.
+> * The `NUSID` **must be a 7-digit number following a capital 'E'**.
 > * `NAME` can consist of numbers.
 > * `NAME` can be duplicated for different persons.
 > * `PHONE_NUMBER` has to be 3-10 digits long.
@@ -303,7 +303,7 @@ Examples:
 Format 2: `delete g/GROUP`
 
 > Note:
-> * Deletes the person in a specified `GROUP`.
+> * Deletes ALL people in a specified `GROUP`.
 > * The group refers to the group shown in the displayed person list.
 > * The group **must exist in AronaPro beforehand**.
 
@@ -450,6 +450,7 @@ Furthermore, certain edits can cause AronaPro to behave in unexpected ways (e.g.
 5. **When adding/editing a person's email address with a very long email address**, the email address may be hidden from view. The remedy is to resize the window to view the full email address.
 6. **When resizing the window to a smaller size**, the GUI may not fully display the person's information; for example: name, tag, remark. The remedy is to resize the window to a larger size to view all the information.
 7. **When adding/editing names with special characters, i.e. `!@#$%^&*()_+`**, the application does not allow such names to be added/edited. The remedy is to avoid using special characters in the names.
+8. **When using any command** We do not check for extra unrecognized flags (e.g. z/), as it might be included in certain fields such as people names:  Muhammad S/O Ahmad, group names: code/design lab etc. The remedy is to check what flags are valid before/while using a command.
 
 --------------------------------------------------------------------------------------------------------------------
 
