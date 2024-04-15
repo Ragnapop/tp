@@ -163,7 +163,7 @@ Format: `add id/NUSID n/NAME p/PHONE_NUMBER e/EMAIL t/TAG [g/GROUP]…​`
 
 > Note:
 > * The `NUSID` refers to the NUSID shown in the displayed person list.
-> * The `NUSID` **must be a 7-digit number following an 'E'**.
+> * The `NUSID` **must be a 7-digit number following a capital 'E'**.
 > * `NAME` can consist of numbers.
 > * `NAME` can be duplicated for different persons.
 > * `PHONE_NUMBER` has to be 3-10 digits long.
