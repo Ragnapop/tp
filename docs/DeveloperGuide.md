@@ -377,17 +377,11 @@ Step 7. Success message is printed onto the results display to notify user.
 <box type="info" seamless>
 
 **Note:** If a command fails its execution, it will not call `Model#updateFilteredPersonList()` and the list of persons displayed remains the same.
+
 **Note:** If a command finds no person, it will display an empty list and not an error message.
 
 </box>
 
-The following sequence diagram shows how a find operation goes through the `Logic` component:
-
-<puml src="diagrams/FindSequenceDiagram.puml" alt="FindSequenceDiagram">
-
-The following activity diagram summarizes what happens when a user inputs a `find` command:
-
-<puml src="diagrams/FindActivityDiagram.puml" alt="FindActivityDiagram">
 
 #### Design considerations:
 
@@ -603,7 +597,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. AddressBook shows an error message.
 
       Use case resumes at step 1.
-      
+
 * 2b. The given information is insufficient to form a contact.
 
     * 2b1. AddressBook shows an error message.
@@ -627,7 +621,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. AddressBook shows an error message.
 
       Use case resumes at step 1.
-      
+
 * 2a. The contact does not exist.
 
     * 2a1. AddressBook shows an error message.
@@ -713,6 +707,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. AddressBook creates a new tag with the name of the tutorial group.
 
         Use case resumes at step 2.
+      
 
 **Use case: Classify an existing contact (Prof, TA, Student)**
 
@@ -897,3 +892,11 @@ testers are expected to do more *exploratory* testing.
    1. Open the data file `data/addressbook.json` in a text editor and delete some lines from the middle of the file.<br>
            Expected: The app should show an error message and starts with an empty AronaPro.
 2. _{ more test cases …​ }_
+
+The following sequence diagram shows how a find operation goes through the `Logic` component:
+
+<puml src="diagrams/FindSequenceDiagram.puml" alt="FindSequenceDiagram">
+
+The following activity diagram summarizes what happens when a user inputs a `find` command:
+
+<puml src="diagrams/FindActivityDiagram.puml" alt="FindActivityDiagram">
