@@ -382,6 +382,13 @@ Step 7. Success message is printed onto the results display to notify user.
 
 </box>
 
+The following sequence diagram shows how a find operation goes through the `Logic` component:
+
+<puml src="diagrams/FindSequenceDiagram.puml" alt="FindSequenceDiagram" />
+
+The following activity diagram summarizes what happens when a user inputs a `find` command:
+
+<puml src="diagrams/FindActivityDiagram.puml" alt="FindActivityDiagram" />
 
 #### Design considerations:
 
@@ -893,10 +900,4 @@ testers are expected to do more *exploratory* testing.
            Expected: The app should show an error message and starts with an empty AronaPro.
 2. _{ more test cases …​ }_
 
-The following sequence diagram shows how a find operation goes through the `Logic` component:
 
-<puml src="diagrams/FindSequenceDiagram.puml" alt="FindSequenceDiagram">
-
-The following activity diagram summarizes what happens when a user inputs a `find` command:
-
-<puml src="diagrams/FindActivityDiagram.puml" alt="FindActivityDiagram">
