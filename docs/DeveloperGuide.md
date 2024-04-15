@@ -382,9 +382,11 @@ Step 7. Success message is printed onto the results display to notify user.
 </box>
 
 The following sequence diagram shows how a find operation goes through the `Logic` component:
+
 <puml src="diagrams/FindSequenceDiagram.puml" alt="FindSequenceDiagram">
 
 The following activity diagram summarizes what happens when a user inputs a `find` command:
+
 <puml src="diagrams/FindActivityDiagram.puml" alt="FindActivityDiagram">
 
 #### Design considerations:
