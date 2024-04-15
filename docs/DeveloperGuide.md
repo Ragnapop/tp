@@ -196,7 +196,7 @@ The following sequence diagram shows how an add operation goes through the `Logi
 
 <puml src="diagrams/AddSequenceDiagram.puml" alt="AddSequenceDiagram" />
 
-The following activity diagram summarizes what happens when a user inputs a schedule command:
+The following activity diagram summarizes what happens when a user inputs an add command:
 
 <puml src="diagrams/AddDiagram.puml" width="250" />
 
@@ -212,6 +212,63 @@ The following activity diagram summarizes what happens when a user inputs a sche
 * **Alternative 1 (current choice):** Create instances of objects for each of the fields and add the person to the model.
     * Pros: Allow for each field to be validated before adding the person.
     * Cons: Additional checks are required.
+
+
+### `Delete` feature
+
+A person or persons can be deleted using the `Delete` command. The `DeleteCommand` class is responsible for handling the deletion of a person/persons. This command is implemented through `DeleteCommand` which extends the `Command` class.
+
+A `Person` can be deleted by specifying `NUSID` or `GROUP`.
+
+<box type="info" seamless>
+
+</box>
+
+#### Implementation
+
+Given below is an example usage scenario and how the `DeleteCommand` mechanism behaves at each step.
+
+Step 1. The user executes `delete` command.
+
+Step 2. The `AddressBookParser` will call `parseCommand` on the user's input string and return an instance of `DeleteCommandParser`.
+
+Step 3. `DeleteCommandParser` will call `parse` which create instances of objects for each of the fields and return an instance of `DeleteCommand`.
+
+Step 4. The `LogicManager` calls the `execute` method in `DeleteCommand`.
+
+Step 5. The `execute` method in `DeleteCommand` executes and calls `Model#deletePerson()` to delete the person/persons from the address book.
+
+Step 6. Success message is printed onto the results display to notify user.
+
+<box type="info" seamless>
+
+**Note:** If a command fails its execution, it will not call `Model#deletePerson()` and the person/persons will not be deleted from the address book.
+
+</box>
+
+The following sequence diagram shows how a delete operation goes through the `Logic` component:
+
+<puml src="diagrams/DeleteSequenceDiagram.puml" alt="DeleteSequenceDiagram" />
+
+The following activity diagram summarizes what happens when a user inputs a delete command:
+
+<puml src="diagrams/DeleteDiagram.puml" width="250" />
+
+#### Design considerations:
+
+**How add executes**
+
+* User inputs an `delete` command with either `NUSID` or `GROUP`. The inputs are parsed and a `DeleteCommand` is created.
+* The instances of the relevant fields are created and the person/person are deleted from the model.
+
+**Alternative considerations**
+
+* **Alternative 1 (current choice):** Create instances of objects for each of the fields and delete the person/persons from the model.
+    * Pros: Allow for each field to be validated before deleting the person/persons.
+    * Cons: Additional checks are required.
+* **Alternative 2:** Creates separate command to delete either specifically a person or everybody from that group.
+    * Pros: Allow for user to have separate command so that there is a distinct command carrying out a certain functionality, to prevent confusion from the user.
+    * Cons: More commands are needed for the user to remember.
 
 ### `Edit` feature
 
