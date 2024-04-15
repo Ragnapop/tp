@@ -28,19 +28,19 @@ Together, let us **_Centralise_, _Connect_ and _Coordinate_!**
   * [**About UserGuide**](#about-userguide)
   * [**Quick Start**](#quick-start)
   * [**Features**](#features)
-    * [Understanding our application's interface](#understanding-our-applications-interface)
-    * [Notes about command format](#notes-about-the-command-formatbr)
-    * [Help command](#viewing-help--help)
+    * [Understanding our application's interface](#understanding-our-application-s-interface)
+    * [Notes about command format](#notes-about-the-command-format)
+    * [Help command](#viewing-help-help)
     * [Add command](#adding-a-person-add)
-    * [View command](#viewing-all-persons--view)
-    * [Edit command](#editing-a-persons-information--edit)
+    * [View command](#viewing-all-persons-view)
+    * [Edit command](#editing-a-person-s-information-edit)
     * [Find command](#finding-a-person-find)
-    * [Delete command](#deleting-a-person--delete)
-    * [Group command](#assigning-a-person-to-a-group--group)
+    * [Delete command](#deleting-a-person-delete)
+    * [Group command](#assigning-people-to-a-group-group)
     * [Schedule command](#schedule-a-meeting-with-a-person-schedule)
     * [Pin command](#pinning-a-person-pin)
-    * [Clear command](#clearing-all-entries--clear)
-    * [Exit command](#exiting-the-program--exit)
+    * [Clear command](#clearing-all-entries-clear)
+    * [Exit command](#exiting-the-program-exit)
     * [Saving the data](#saving-the-data)
     * [Editting the data file](#editing-the-data-file)
   * [**FAQ**](#faq)
@@ -131,11 +131,11 @@ Let us get started!
   > In the delete command as such: `delete id/NUSID`, `NUSID` is a parameter which need to be supplied.
 
 * Items in square brackets are optional.<br>
-  > `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or simply as `n/John Doe` without specifying the `TAG` as it is optional.
+  > `n/NAME [t/TAG]` can be used as `n/John Doe t/Student` or simply as `n/John Doe` without specifying the `TAG` as it is optional.
 
 * Items with `…`​ after them can be used multiple times or zero times.<br>
-  > * `[g/GROUP]…​` can be used as ` ` (i.e. 0 times) or `g/School` `g/Family`, demonstrating that group can be used 2 times by writing them successively on the same line etc.
-  > * The only exception to the above is when `NUSID` is of concern where it needs to be used **at least once** or more. `id/NUSID...` means that you need to use it once as such: `id/E1234567` 
+  > * `[g/GROUP]…​` can be used as ` ` (i.e. 0 times) or `g/CS2101 g/CS2103T`, demonstrating that group can be used 2 times by writing them successively on the same line etc.
+  > * The only exception to the above is when `NUSID` is of concern where it needs to be used **at least once** or more. `id/NUSID…​` means that you need to use it once as such: `id/E1234567` 
   > or you can choose to use it more than once: `id/E1234567 id/E0123456`.
 * Parameters can be in any order.<br>
   > If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -176,7 +176,8 @@ Format: `add id/NUSID n/NAME p/PHONE_NUMBER e/EMAIL t/TAG [g/GROUP]…​`
   >     * Domain name must end with a domain label at least 2 characters long.
 >       * Have each domain label start and end with alphanumeric characters.
 >       * Have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
-> * For `TAG``, the valid forms have to be either 1 of these:  Professor, TA, Student, None.
+> * For `TAG`, the valid forms have to be either 1 of these:  Professor, TA, Student, None.
+> * For `GROUP`, the group must only contain alphanumeric characters or spaces.
 
 **Tip:** A person can have 0 or more groups.
 
@@ -208,7 +209,7 @@ Format: `view`
 
 Edits the information of a person of a specified `NUSID` in AronaPro.
 
-Format: `edit id/NUSID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]...` 
+Format: `edit id/NUSID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]…​` 
 
 > Note:
 > * The `NUSID` refers to the NUSID shown in the displayed person list.
@@ -225,8 +226,9 @@ Format: `edit id/NUSID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]...`
 >     * Domain name must end with a domain label at least 2 characters long.
 >     * Have each domain label start and end with alphanumeric characters.
 >     * Have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
-> * When editing tags, the valid forms have to be either 1 of these:  Professor, TA, Student, None.
-> * At least one of the optional fields must be provided.
+> * When editing `TAG`, the valid forms have to be either 1 of these:  Professor, TA, Student, None.
+> * When editing `GROUP`, the group must only contain alphanumeric characters or spaces.
+> * **At least one of the optional fields must be provided.**
 > * Existing values will be replaced by and updated to the new input values.
 > * Attempt to edit a person with `NUSID` not in AronaPro would result in an error message.
 
@@ -249,18 +251,18 @@ Examples:
 
 Finds persons whose details match ALL the given keywords.
 
-Format: `find [id/NUSID] [n/NAME] [p/PHONE] [e/EMAIL] [t/TAG] [g/GROUP] [g/MORE GROUPS]`
+Format: `find [id/NUSID] [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]…​`
 
 > Note:
-> * The NUSID search matches people that has a prefix that STARTS WITH the query (e.g `E0123` fetches `E0123456`).
-> * The NAME search is case-insensitive. e.g `hans` will match `Hans`.
-> * The order of NAME keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
-> * Only full words will be matched for NAME e.g. `Han` will not match `Hans`.
-> * Persons matching ANY word will be selected for NAME (e.g. `Hans Bo` will fetch `Hans Gruber`, `Bo Yang`).
-> * The PHONE search matches people that has a number that STARTS WITH the query (e.g `9123` fetches `91237654`).
-> * The EMAIL search uses a PARTIAL, case-insensitive match. (e.g. `charles` matches `PrinceCharles@kingston.com`).
-> * The TAG search uses an EXACT case-sensitive match. 
-> * The GROUP search fetches people with ALL specified groups (e.g `g/CS2101 g/CS2103T` matches a person who minimally has BOTH these Groups).
+> * The `NUSID` search matches people that has a prefix that STARTS WITH the query (e.g `E0123` fetches `E0123456`).
+> * The `NAME` search is case-insensitive. e.g `hans` will match `Hans`.
+> * The order of `NAME` keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+> * Only full words will be matched for `NAME` e.g. `Han` will not match `Hans`.
+> * Persons matching ANY word will be selected for `NAME` (e.g. `Hans Bo` will fetch `Hans Gruber`, `Bo Yang`).
+> * The `PHONE_NUMBER` search matches people that has a number that STARTS WITH the query (e.g `9123` fetches `91237654`).
+> * The `EMAIL` search uses a PARTIAL, case-insensitive match. (e.g. `charles` matches `PrinceCharles@kingston.com`).
+> * The `TAG` search uses an EXACT case-sensitive match. 
+> * The `GROUP` search fetches people with ALL specified groups (e.g `g/CS2101 g/CS2103T` matches a person who minimally has BOTH these Groups).
 > * Persons matching all parameters will be returned (i.e. `AND` search).
   
 Examples:
@@ -281,7 +283,7 @@ Examples:
 ### Deleting a person : `delete`
 
 
-Deletes person of a specified `NUSID` from the address book OR deletes all persons from a specified `GROUP` from the address book.
+Deletes person of a specified `NUSID` from the filtered address book OR deletes all persons from a specified `GROUP` from the filtered address book.
 
 Format 1: `delete id/NUSID`
 
@@ -301,13 +303,13 @@ Examples:
 Format 2: `delete g/GROUP`
 
 > Note:
-> * Deletes the person in a specified `group`.
+> * Deletes the person in a specified `GROUP`.
 > * The group refers to the group shown in the displayed person list.
 > * The group **must exist in AronaPro beforehand**.
 
 Examples:
 * `delete g/CS2103T`
-  > This command will delete an existing person with `group` of "CS2103T".
+  > This command will delete an existing person with `GROUP` of "CS2103T".
   >
     <p align="centerleft">
         <img src="images/delete/delete-group.png" alt="delete-group" width="700" style="margin-top:20px"/>
@@ -317,16 +319,16 @@ Examples:
 
 Assigns either a group or a tag to a person of a specified `NUSID` from AronaPro.
 
-Format: `group id/NUSID... [g/GROUP]... [t/TAG]`
+Format: `group id/NUSID…​ [g/GROUP]…​ [t/TAG]`
 
 > Note:
 > * Groups the person of a specified `NUSID`.
 > * The `NUSID` refers to the NUSID shown in the displayed person list.
 > * The `NUSID` **must be a 7-digit number following an 'E'**.
 > * More than one `NUSID` can be specified for a group command to group more than one person (`group id/E1234567 id/E0123456 g/Friends`).
-> * At least one of the optional fields must be provided.
-> * When editing tags, the valid forms have to be either 1 of these:  Professor, TA, Student, None.
-> * When editing groups, the group must only contain alphanumeric characters or spaces.
+> * **At least one of the optional fields must be provided.**
+> * When assigning `TAG`, the valid forms have to be either 1 of these:  Professor, TA, Student, None.
+> * When assigning `GROUP`, the group must only contain alphanumeric characters or spaces.
 > * Existing values will be replaced by and updated to the new input values.
 > * A person can be assigned to a non-existing group.
 
@@ -356,7 +358,7 @@ Format: `schedule id/NUSID [s/SCHEDULE r/REMARK]`
 > * The `NUSID` refers to the NUSID shown in the displayed person list.
 > * The `NUSID` **must be a 7-digit number following an 'E'**.
 > * Both `SCHEDULE` and `REMARK` must be either provided or not provided.
-> * If `SCHEDULE` and `REMARK` are not provided and the `Schedule` command is used as a standalone, the schedule will be removed (`schedule id/E1234567`).
+> * **If `SCHEDULE` and `REMARK` are not provided and the `Schedule` command is used as a standalone, the schedule will be removed (`schedule id/E1234567`).**
 
 **Tip:** The `SCHEDULE` must be in one of the formats: `DD/MM/YYYY`, `DD-MM-YYYY`, `DD.MM.YYYY`, `MMM DD, YYYY`, `DD MMM YYYY`. Example of date formats include: `12-12-2024`, `12/12/2024`, `12.12.2024`, `Dec 12, 2024`, `12 Dec 2024`.
 
@@ -447,6 +449,7 @@ Furthermore, certain edits can cause AronaPro to behave in unexpected ways (e.g.
 4. **When using the `group` command with a very long group name**, the group name may be hidden from view. The remedy is to resize the window to view the full group name.
 5. **When adding/editing a person's email address with a very long email address**, the email address may be hidden from view. The remedy is to resize the window to view the full email address.
 6. **When resizing the window to a smaller size**, the GUI may not fully display the person's information; for example: name, tag, remark. The remedy is to resize the window to a larger size to view all the information.
+7. **When adding/editing names with special characters, i.e. `!@#$%^&*()_+`**, the application does not allow such names to be added/edited. The remedy is to avoid using special characters in the names.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -462,22 +465,24 @@ Team size: 5
 4. **Email address visibility:** When adding/editing a person's email address with a very long email address, the email address may be hidden from view. We plan to implement a feature to allow users to view the full email address. Either by truncating the email address, allowing the user to view the full email address or limiting the length of the email address.
 5. **Tag information visibility:** When resizing the window to a smaller size, the GUI may not fully display the person's tag information. We plan to implement a minimum size for the window to ensure that all information is displayed.
 6. **Tag case sensitivity:** When editing tags, the valid forms have to be either 1 of these:  Professor, TA, Student, None. We plan to implement a feature to allow users to enter tags in any case (e.g., professor, ta, student, none) and still be recognised as valid tags.
+7. **Special characters in names:** When adding/editing names with special characters, i.e. `!@#$%^&*()_+`, the application does not allow such names to be added/edited. We plan to implement a feature to allow users to enter names with special characters.
+8. **One schedule per person:** Currently, a person can only have one schedule. We plan to implement a feature to allow a person to have multiple schedules.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
-| Action       | Format, Examples                                                                                                                       |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**      | `add n/NAME p/PHONE_NUMBER e/EMAIL t/TAG [g/GROUP]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com t/Student g/CS2103T-T15` |
-| **Clear**    | `clear`                                                                                                                                |
-| **Delete**   | `delete id/NUSID`<br> e.g., `delete id/E01234567 OR delete g/GROUP` <br> e.g., `delete g/CS2103`                                       |
-| **Edit**     | `edit id/NUSID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]…​`<br> e.g.,`edit id/E1234567 n/James Lee e/jameslee@example.com` |
-| **Find**     | `find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]`<br> e.g., `find n/James g/CS2103T`                                        |
-| **Group**    | `group id/NUSID... [g/GROUP]... [t/TAG] ` <br> e.g., `group id/E1234567 g/T15`                                                                                             |
-| **Schedule** | `schedule id/NUSID [s/SCHEDULE r/REMARK]` <br> e.g., `schedule id/E1234567 s/12-12-2021 r/Consultation`                                |
-| **Pin**      | `pin id/NUSID`                                                                                                                         |
-| **View**     | `view`                                                                                                                                 |
-| **Help**     | `help`                                                                                                                                 |
+| Action       | Format, Examples                                                                                                                                                               |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**      | `add id/NUSID n/NAME p/PHONE_NUMBER e/EMAIL t/TAG [g/GROUP]…​` <br> e.g., `add id/E1234567 n/James Ho p/22224444 e/jamesho@example.com t/Student g/CS2101`                     |
+| **Clear**    | `clear`                                                                                                                                                                        |
+| **Delete**   | `delete id/NUSID`<br> e.g., `delete id/E01234567`<br> OR `delete g/GROUP` <br> e.g., `delete g/CS2103`                                                                         |
+| **Edit**     | `edit id/NUSID [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]…​`<br> e.g.,`edit id/E1234567 n/James Lee e/jameslee@example.com`                                         |
+| **Find**     | `find [id/NUSID] [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG] [g/GROUP]…​`<br> e.g., `find n/James g/CS2103T` <br>**Tip:** At least one of the optional fields must be provided |
+| **Group**    | `group id/NUSID…​ [g/GROUP]…​ [t/TAG] ` <br> e.g., `group id/E1234567 g/T15` <br>**Tip:** At least one of the optional fields must be provided                                 |
+| **Schedule** | `schedule id/NUSID [s/SCHEDULE r/REMARK]` <br> e.g., `schedule id/E1234567 s/12-12-2021 r/Consultation`                                                                        |
+| **Pin**      | `pin id/NUSID`                                                                                                                                                                 |
+| **View**     | `view`                                                                                                                                                                         |
+| **Help**     | `help`                                                                                                                                                                         |
 
 
