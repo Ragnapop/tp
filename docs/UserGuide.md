@@ -303,7 +303,7 @@ Examples:
 Format 2: `delete g/GROUP`
 
 > Note:
-> * Deletes the person in a specified `GROUP`.
+> * Deletes ALL people in a specified `GROUP`.
 > * The group refers to the group shown in the displayed person list.
 > * The group **must exist in AronaPro beforehand**.
 
